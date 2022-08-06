@@ -18,6 +18,7 @@ const bookingRouter = require('./routes/booking-routes');
 const viewsRouter = require('./routes/views-routes');
 const { urlencoded } = require('express');
 
+// Start Express
 const app = express();
 
 app.set('view engine', 'pug');
