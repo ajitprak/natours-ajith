@@ -1,0 +1,25 @@
+doctype html
+html
+    head
+        block head
+            title= `Natours | ${title}`
+            meta(charset='UTF-8')
+            meta(name='viewport' content='width=device-width, initial-scale=1.0')
+            //- meta(http-equiv='Content-Security-Policy' content='script-src http://127.0.0.1:8000/ https://cdnjs.cloudflare.com/ajax/libs/axios/')
+            link(rel='stylesheet' href='/css/style.css')
+            link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato:300,300i,700')
+            link(rel='shortcut icon' type='image/png' href='/img/favicon.png')
+
+    body
+        // Header
+        include _header
+        // CONTENT
+        block content
+            h1 This is a placeholder content
+        // FOOTER
+        include _footer  
+
+    //- script(src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js')
+    //- script(src='/js/mapbox.js')
+    //- script(src='/js/login.js')
+    script(src='/js/bundle.js')
