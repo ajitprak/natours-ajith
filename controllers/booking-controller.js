@@ -55,7 +55,7 @@ const createBooking = catchAsync(async (session) => {
     // We have set all these values when we configure stripe above
     const tour = session.client_reference_id;
     const user = (await User.find({ email: session.customer_email })).id;
-    const price = session.line_items[0].amount / 100; // We should loop thru line_items and create multiple bookings if there are
+    const price = session.display_items[0].amount / 100; // We should loop thru line_items and create multiple bookings if there are
 
     await Booking.create({
         tour,
