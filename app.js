@@ -18,7 +18,7 @@ const tourRouter = require('./routes/tourRoutes');
 const userRouter = require('./routes/userRoutes');
 const reviewRouter = require('./routes/review-routes');
 const bookingRouter = require('./routes/booking-routes');
-const bookingController = require('./controller/booking-controller');
+const bookingController = require('./controllers/booking-controller');
 const viewsRouter = require('./routes/views-routes');
 const { urlencoded } = require('express');
 

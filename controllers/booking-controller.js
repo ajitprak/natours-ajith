@@ -22,7 +22,7 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
             {
                 name: `${tour.name} Tour`,
                 description: tour.summary, // All these are parameters that stripe requires
-                images: [`https://www.natours.dev/img/tours/${tour.imageCover}`], // Must be a live image( image hosted somewhere)
+                images: [`${req.protocol}://${req.get('host')}/img/tours/${tour.imageCover}`], // Must be a live image( image hosted somewhere)
                 amount: tour.price * 100, // Need to convert it to cents or paisa
                 currency: 'inr',
                 quantity: 1, // The quantity of items purchased
