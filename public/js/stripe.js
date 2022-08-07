@@ -3,14 +3,14 @@ import axios from 'axios';
 
 import { showAlert } from './alerts';
 
-const baseUrl = 'http://127.0.0.1:8000/';
+// const baseUrl = 'http://127.0.0.1:8000/';
 
 export const bookTour = async (tourId) => {
     try {
         // 1) Get the session
         const session = await axios({
             method: 'POST',
-            url: `${baseUrl}api/v1/bookings//checkout-session/${tourId}`,
+            url: `/api/v1/bookings//checkout-session/${tourId}`,
         });
         // console.log(session);
 

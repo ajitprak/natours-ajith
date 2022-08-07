@@ -1,5 +1,6 @@
 const path = require('path');
 const express = require('express');
+
 const morgan = require('morgan');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
@@ -7,6 +8,7 @@ const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
 const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
+const compression = require('compression');
 
 const AppError = require('./utils/app-error');
 const globalErrorHandler = require('./controllers/error-controller');
@@ -68,6 +70,7 @@ app.use(
 //     next();
 // });
 
+app.use(compression());
 // Test middleware
 app.use((req, res, next) => {
     req.requestTime = new Date().toISOString();

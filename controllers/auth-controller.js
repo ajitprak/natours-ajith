@@ -146,7 +146,6 @@ exports.restrictTo =
     (...roles) =>
     (req, res, next) => {
         // Here es6 rest syntax is used ...roles roles will be an array of passed in params
-        console.log(roles, req.user.role);
         if (!roles.includes(req.user.role)) {
             return next(new AppError('You donot have permission to perform this action', 403));
         }

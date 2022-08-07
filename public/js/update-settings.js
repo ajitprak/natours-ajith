@@ -8,7 +8,7 @@ const baseUrl = 'http://127.0.0.1:8000/';
 // type is either passord or data
 export const updateSettings = async (data, type) => {
     try {
-        const url = type === 'password' ? `${baseUrl}api/v1/users/change-password` : `${baseUrl}api/v1/users/update-me`;
+        const url = type === 'password' ? `/api/v1/users/change-password` : `/api/v1/users/update-me`;
         const res = await axios({
             method: 'PATCH',
             url,

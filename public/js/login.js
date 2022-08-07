@@ -3,13 +3,13 @@ import axios from 'axios';
 
 import { showAlert } from './alerts';
 
-const baseUrl = 'http://127.0.0.1:8000/';
+// const baseUrl = 'http://127.0.0.1:8000/';
 
 export const login = async (email, password) => {
     try {
         const res = await axios({
             method: 'POST',
-            url: `${baseUrl}api/v1/users/login`,
+            url: `/api/v1/users/login`,
             data: {
                 email,
                 password,
@@ -30,7 +30,7 @@ export const logout = async () => {
     try {
         const res = await axios({
             method: 'GET',
-            url: `${baseUrl}api/v1/users/logout`,
+            url: `/api/v1/users/logout`,
         });
         if (res.data.status === 'success') {
             showAlert('success', 'Logged out successfully !!!');
