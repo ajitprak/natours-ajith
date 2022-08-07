@@ -10,6 +10,8 @@ router.use(authController.isLoggedIn);
 
 router.get('/login', authController.isLoggedIn, viewsController.getLogin);
 
+router.use(viewsController.getAlerts);
+
 router.get('/', authController.isLoggedIn, viewsController.getOverview); //  bookingController.createBookingCheckout,
 router.get('/tour/:slug', authController.isLoggedIn, viewsController.getTour);
 router.get('/me', authController.protect, viewsController.getCurrentAccountPage);
