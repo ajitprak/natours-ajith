@@ -23,6 +23,10 @@ const { urlencoded } = require('express');
 // Start Express
 const app = express();
 
+// we need this setting so that x-forwarded-proto header will be creectly set to https when we have https
+// Does it create vulnerabilities
+app.enable('trust proxy');
+
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 

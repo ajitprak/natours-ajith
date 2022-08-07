@@ -50,3 +50,11 @@ process.on('unhandledRejection', (err) => {
         process.exit(1);
     });
 });
+
+process.on('SIGTERM', () => {
+    console.log('SIGTERM RECEIVED. Shitting down gracefully');
+    // Server.close will finish any active requests before shutting down
+    server.close(() => {
+        console.log('Process terminated');
+    });
+});
