@@ -9,6 +9,7 @@ const xss = require('xss-clean');
 const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
 const compression = require('compression');
+const cors = require('cors');
 
 const AppError = require('./utils/app-error');
 const globalErrorHandler = require('./controllers/error-controller');
@@ -29,6 +30,19 @@ app.enable('trust proxy');
 
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
+
+app.use(cors());
+// app.use(
+//     cors({
+//         origin: 'https://www.natours.com',
+//     })
+// );
+
+// Here app.options is similar to app.get or app.post, options is just a verb
+// * means it is applicable for all routes
+app.options('*', cors());
+// For a specifc route - only resources in this route will have access on cross orgin
+// app.options('api/v1/tour/:id', cors());
 
 // Serve static files
 app.use(express.static(path.join(__dirname, 'public')));
